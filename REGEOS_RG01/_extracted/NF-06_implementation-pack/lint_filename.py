@@ -23,44 +23,44 @@ FILENAME_PATTERN = re.compile(
 )
 
 def validate_filename(fname):
- errs=
+ errs = []
  m = FILENAME_PATTERN.match(fname)
  if not m:
- errs.append("Pattern mismatch")
- return errs
+  errs.append("Pattern mismatch")
+  return errs
  parts = m.groupdict()
  if parts['func'] not in ALLOWED_FUNCS:
- errs.append(f"Invalid FUNC {parts['func']}")
+  errs.append(f"Invalid FUNC {parts['func']}")
  if parts['scope'] not in ALLOWED_SCOPES:
- errs.append(f"Invalid SCOPE {parts['scope']}")
+  errs.append(f"Invalid SCOPE {parts['scope']}")
  if parts['lang'] not in ALLOWED_LANGS:
- errs.append(f"Invalid LANG {parts['lang']}")
+  errs.append(f"Invalid LANG {parts['lang']}")
  if parts['tag'] not in ALLOWED_TAGS:
- errs.append(f"Invalid TAG {parts['tag']}")
+  errs.append(f"Invalid TAG {parts['tag']}")
  slugs = parts['slugs'].split('+')
- if len(slugs)>3:
- errs.append("Too many slugs")
+ if len(slugs) > 3:
+  errs.append("Too many slugs")
  for s in slugs:
- if s not in ALLOWED_SLUGS:
- errs.append(f"Unknown slug {s}")
+  if s not in ALLOWED_SLUGS:
+   errs.append(f"Unknown slug {s}")
  try:
- datetime.date.fromisoformat(parts['date'])
- except:
- errs.append(f"Bad date {parts['date']}")
+  datetime.date.fromisoformat(parts['date'])
+ except Exception:
+  errs.append(f"Bad date {parts['date']}")
  return errs
 
 def main(dir):
- invalid={}
+ invalid = {}
  for f in os.listdir(dir):
- errs=validate_filename(f)
- if errs:
- invalid[f]=errs
+  errs = validate_filename(f)
+  if errs:
+   invalid[f] = errs
  if invalid:
- for f, errs in invalid.items():
- print(f"{f}: {errs}")
+  for f, errs in invalid.items():
+   print(f"{f}: {errs}")
  else:
- print("All valid [OK]")
+  print("All valid [OK]")
 
-if __name__=="__main__":
+if __name__ == "__main__":
  import sys
- main(sys.argv[1] if len(sys.argv)>1 else ".")
+ main(sys.argv[1] if len(sys.argv) > 1 else ".")

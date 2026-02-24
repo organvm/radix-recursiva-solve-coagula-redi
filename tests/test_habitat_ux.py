@@ -12,10 +12,10 @@ import io
 import time
 from unittest.mock import patch
 
-# Add project root to path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Add src/ to path so habitat package is importable without install
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src"))
 
-from habitat_ux import Spinner, Colors
+from habitat.habitat_ux import Spinner, Colors
 
 
 class TestSpinner(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestSpinner(unittest.TestCase):
         output = captured_output.getvalue()
 
         # Should contain spinner frames
-        self.assertIn("⠋", output)
+        self.assertIn("\u280b", output)
         self.assertIn("Testing...", output)
         # Should contain ANSI colors
         self.assertIn(Colors.CYAN, output)

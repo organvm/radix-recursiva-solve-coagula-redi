@@ -3,7 +3,6 @@ TIMELINE MAP SCRIPT
 Generates a week-by-week plan from a calendar map file and outputs a summary.
 """
 
-import os
 import sys
 
 def load_calendar_file(calendar_file):
