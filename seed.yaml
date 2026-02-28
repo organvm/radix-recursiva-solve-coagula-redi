@@ -9,6 +9,7 @@ repo: ?
 org: ?
 
 metadata:
+  promotion_status: CANDIDATE
 
 produces:
   - type: theory-artifact
