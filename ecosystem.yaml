@@ -1,0 +1,7 @@
+schema_version: '1.0'
+repo: radix-recursiva-solve-coagula-redi
+organ: I
+display_name: Recursive root solving and alchemical cycles
+delivery:
+- platform: web_app
+  status: not_started
