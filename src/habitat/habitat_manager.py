@@ -217,11 +217,11 @@ class HabitatManager:
                     color=Colors.BLUE,
                 )
                 print(f"[INFO] Status for experiment '{safe_experiment_name}':")
-                self._print_kv("Status", status["status"])
-                self._print_kv("Hypothesis", status["hypothesis"])
-                self._print_kv("Created", status["created"])
-                self._print_kv("Boundary", status["boundary"])
-                self._print_kv("Workspace", status["workspace"])
+                self._print_kv("Status", status["Status"])
+                self._print_kv("Hypothesis", status["Hypothesis"])
+                self._print_kv("Created", status["Created"])
+                self._print_kv("Boundary", status["Boundary"])
+                self._print_kv("Workspace", status["Workspace"])
                 print(
                     f"{Colors.HEADER}[INFO] Status for experiment '{Colors.BOLD}{safe_experiment_name}{Colors.RESET}{Colors.HEADER}':{Colors.RESET}"
                 )
