@@ -1,0 +1,7 @@
+{
+  "_comment": "Repos promoted into the ranked value tier by discovery. This file uses the Limen value-repos schema: a top-level repos array of owner/name strings.",
+  "ranked_by": "time-to-dollar",
+  "repos": [
+    "organvm/radix-recursiva-solve-coagula-redi"
+  ]
+}
